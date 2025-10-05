@@ -28,11 +28,13 @@ A modern Next.js website for Anandam City real estate project by Yatharth Ventur
 
 1. Clone the repository
 2. Install dependencies:
+
    ```bash
    npm install
    ```
 
 3. Start the development server:
+
    ```bash
    npm run dev
    ```
@@ -66,6 +68,7 @@ A modern Next.js website for Anandam City real estate project by Yatharth Ventur
 ## Features Details
 
 ### PDF Viewer
+
 - Professional modal-based PDF viewer
 - Navigation controls (Previous/Next page)
 - Zoom controls (In/Out/Reset)
@@ -74,6 +77,7 @@ A modern Next.js website for Anandam City real estate project by Yatharth Ventur
 - Hindi language interface
 
 ### Design
+
 - Modern glassmorphism effects
 - Gradient backgrounds and buttons
 - Professional color scheme (Orange & Navy Blue)

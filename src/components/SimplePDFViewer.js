@@ -42,37 +42,56 @@ export default function SimplePDFViewer({ isOpen, onClose, pdfUrl, title }) {
             ×
           </button>
         </div>
-        
-        <div className="pdf-viewer-container" style={{ 
-          display: 'flex', 
-          flexDirection: 'column', 
-          alignItems: 'center', 
-          justifyContent: 'center',
-          padding: '40px',
-          textAlign: 'center'
-        }}>
-          <div style={{ 
-            background: 'linear-gradient(45deg, #1a2a6c, #ff6600)', 
-            color: 'white', 
-            padding: '40px', 
-            borderRadius: '15px',
-            marginBottom: '30px',
-            fontSize: '3rem'
-          }}>
+
+        <div
+          className="pdf-viewer-container"
+          style={{
+            display: 'flex',
+            flexDirection: 'column',
+            alignItems: 'center',
+            justifyContent: 'center',
+            padding: '40px',
+            textAlign: 'center',
+          }}
+        >
+          <div
+            style={{
+              background: 'linear-gradient(45deg, #1a2a6c, #ff6600)',
+              color: 'white',
+              padding: '40px',
+              borderRadius: '15px',
+              marginBottom: '30px',
+              fontSize: '3rem',
+            }}
+          >
             📄
           </div>
-          
-          <h3 style={{ color: '#1a2a6c', marginBottom: '20px', fontSize: '1.5rem' }}>
+
+          <h3
+            style={{
+              color: '#1a2a6c',
+              marginBottom: '20px',
+              fontSize: '1.5rem',
+            }}
+          >
             प्रोजेक्ट प्रेजेंटेशन देखें
           </h3>
-          
+
           <p style={{ color: '#666', marginBottom: '30px', lineHeight: '1.6' }}>
-            Anandam City की विस्तृत जानकारी के लिए PDF प्रेजेंटेशन देखें।<br/>
+            Anandam City की विस्तृत जानकारी के लिए PDF प्रेजेंटेशन देखें।
+            <br />
             आप इसे नए टैब में खोल सकते हैं या डाउनलोड कर सकते हैं।
           </p>
-          
-          <div style={{ display: 'flex', gap: '20px', flexWrap: 'wrap', justifyContent: 'center' }}>
-            <button 
+
+          <div
+            style={{
+              display: 'flex',
+              gap: '20px',
+              flexWrap: 'wrap',
+              justifyContent: 'center',
+            }}
+          >
+            <button
               onClick={openInNewTab}
               style={{
                 background: 'linear-gradient(45deg, #1a2a6c, #2a3a7c)',
@@ -84,7 +103,7 @@ export default function SimplePDFViewer({ isOpen, onClose, pdfUrl, title }) {
                 fontWeight: '600',
                 cursor: 'pointer',
                 transition: 'all 0.3s ease',
-                boxShadow: '0 4px 15px rgba(26, 42, 108, 0.3)'
+                boxShadow: '0 4px 15px rgba(26, 42, 108, 0.3)',
               }}
               onMouseOver={(e) => {
                 e.target.style.transform = 'translateY(-2px)';
@@ -97,8 +116,8 @@ export default function SimplePDFViewer({ isOpen, onClose, pdfUrl, title }) {
             >
               🔗 नए टैब में खोलें
             </button>
-            
-            <button 
+
+            <button
               onClick={downloadPDF}
               style={{
                 background: 'linear-gradient(45deg, #ff6600, #ff8533)',
@@ -110,7 +129,7 @@ export default function SimplePDFViewer({ isOpen, onClose, pdfUrl, title }) {
                 fontWeight: '600',
                 cursor: 'pointer',
                 transition: 'all 0.3s ease',
-                boxShadow: '0 4px 15px rgba(255, 102, 0, 0.3)'
+                boxShadow: '0 4px 15px rgba(255, 102, 0, 0.3)',
               }}
               onMouseOver={(e) => {
                 e.target.style.transform = 'translateY(-2px)';
@@ -124,23 +143,31 @@ export default function SimplePDFViewer({ isOpen, onClose, pdfUrl, title }) {
               📥 डाउनलोड करें
             </button>
           </div>
-          
-          <div style={{ 
-            marginTop: '30px', 
-            padding: '20px', 
-            background: '#f8f9fa', 
-            borderRadius: '8px',
-            border: '1px solid #e9ecef'
-          }}>
-            <h4 style={{ color: '#1a2a6c', marginBottom: '15px' }}>📋 प्रेजेंटेशन में शामिल:</h4>
-            <ul style={{ 
-              color: '#666', 
-              textAlign: 'left', 
-              listStyle: 'none', 
-              padding: 0,
-              margin: 0
-            }}>
-              <li style={{ marginBottom: '8px' }}>🏠 प्रोजेक्ट का विस्तृत विवरण</li>
+
+          <div
+            style={{
+              marginTop: '30px',
+              padding: '20px',
+              background: '#f8f9fa',
+              borderRadius: '8px',
+              border: '1px solid #e9ecef',
+            }}
+          >
+            <h4 style={{ color: '#1a2a6c', marginBottom: '15px' }}>
+              📋 प्रेजेंटेशन में शामिल:
+            </h4>
+            <ul
+              style={{
+                color: '#666',
+                textAlign: 'left',
+                listStyle: 'none',
+                padding: 0,
+                margin: 0,
+              }}
+            >
+              <li style={{ marginBottom: '8px' }}>
+                🏠 प्रोजेक्ट का विस्तृत विवरण
+              </li>
               <li style={{ marginBottom: '8px' }}>📍 लोकेशन मैप और सुविधाएं</li>
               <li style={{ marginBottom: '8px' }}>💰 प्राइसिंग और ऑफर्स</li>
               <li style={{ marginBottom: '8px' }}>📸 प्रोजेक्ट की तस्वीरें</li>

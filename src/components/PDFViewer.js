@@ -46,19 +46,19 @@ export default function PDFViewer({ isOpen, onClose, pdfUrl, title }) {
   };
 
   const goToPrevPage = () => {
-    setPageNumber(prev => Math.max(prev - 1, 1));
+    setPageNumber((prev) => Math.max(prev - 1, 1));
   };
 
   const goToNextPage = () => {
-    setPageNumber(prev => Math.min(prev + 1, numPages || 1));
+    setPageNumber((prev) => Math.min(prev + 1, numPages || 1));
   };
 
   const zoomIn = () => {
-    setScale(prev => Math.min(prev + 0.2, 3.0));
+    setScale((prev) => Math.min(prev + 0.2, 3.0));
   };
 
   const zoomOut = () => {
-    setScale(prev => Math.max(prev - 0.2, 0.5));
+    setScale((prev) => Math.max(prev - 0.2, 0.5));
   };
 
   const resetZoom = () => {
@@ -82,8 +82,8 @@ export default function PDFViewer({ isOpen, onClose, pdfUrl, title }) {
         <div className="pdf-modal-header">
           <h2>{title}</h2>
           <div style={{ display: 'flex', gap: '10px', alignItems: 'center' }}>
-            <button 
-              className="pdf-download-btn" 
+            <button
+              className="pdf-download-btn"
               onClick={downloadPDF}
               title="PDF डाउनलोड करें"
               style={{
@@ -93,7 +93,7 @@ export default function PDFViewer({ isOpen, onClose, pdfUrl, title }) {
                 padding: '8px 12px',
                 borderRadius: '6px',
                 cursor: 'pointer',
-                fontSize: '1.2rem'
+                fontSize: '1.2rem',
               }}
             >
               ⬇️
@@ -103,44 +103,50 @@ export default function PDFViewer({ isOpen, onClose, pdfUrl, title }) {
             </button>
           </div>
         </div>
-        
+
         <div className="pdf-viewer-container">
           {loading && (
-            <div style={{
-              display: 'flex',
-              flexDirection: 'column',
-              justifyContent: 'center',
-              alignItems: 'center',
-              height: '100%',
-              gap: '20px'
-            }}>
-              <div style={{
-                width: '50px',
-                height: '50px',
-                border: '4px solid #f3f3f3',
-                borderTop: '4px solid #ff6600',
-                borderRadius: '50%',
-                animation: 'spin 1s linear infinite'
-              }}></div>
+            <div
+              style={{
+                display: 'flex',
+                flexDirection: 'column',
+                justifyContent: 'center',
+                alignItems: 'center',
+                height: '100%',
+                gap: '20px',
+              }}
+            >
+              <div
+                style={{
+                  width: '50px',
+                  height: '50px',
+                  border: '4px solid #f3f3f3',
+                  borderTop: '4px solid #ff6600',
+                  borderRadius: '50%',
+                  animation: 'spin 1s linear infinite',
+                }}
+              ></div>
               <p style={{ fontSize: '1.2rem', color: '#1a2a6c', margin: 0 }}>
                 📄 प्रेजेंटेशन लोड हो रहा है...
               </p>
             </div>
           )}
-          
+
           {error && (
-            <div style={{
-              display: 'flex',
-              flexDirection: 'column',
-              justifyContent: 'center',
-              alignItems: 'center',
-              height: '100%',
-              gap: '20px',
-              padding: '40px'
-            }}>
+            <div
+              style={{
+                display: 'flex',
+                flexDirection: 'column',
+                justifyContent: 'center',
+                alignItems: 'center',
+                height: '100%',
+                gap: '20px',
+                padding: '40px',
+              }}
+            >
               <div style={{ fontSize: '3rem' }}>❌</div>
               <h3 style={{ color: '#1a2a6c', margin: 0 }}>{error}</h3>
-              <button 
+              <button
                 onClick={() => window.open(pdfUrl, '_blank')}
                 style={{
                   background: 'linear-gradient(45deg, #ff6600, #ff8533)',
@@ -150,23 +156,25 @@ export default function PDFViewer({ isOpen, onClose, pdfUrl, title }) {
                   borderRadius: '8px',
                   cursor: 'pointer',
                   fontSize: '1rem',
-                  fontWeight: '600'
+                  fontWeight: '600',
                 }}
               >
                 नई टैब में खोलें
               </button>
             </div>
           )}
-          
+
           {!loading && !error && (
-            <div style={{
-              display: 'flex',
-              justifyContent: 'center',
-              alignItems: 'flex-start',
-              minHeight: '100%',
-              padding: '20px',
-              overflow: 'auto'
-            }}>
+            <div
+              style={{
+                display: 'flex',
+                justifyContent: 'center',
+                alignItems: 'flex-start',
+                minHeight: '100%',
+                padding: '20px',
+                overflow: 'auto',
+              }}
+            >
               <Document
                 file={pdfUrl}
                 onLoadSuccess={onDocumentLoadSuccess}
@@ -179,31 +187,39 @@ export default function PDFViewer({ isOpen, onClose, pdfUrl, title }) {
                   renderTextLayer={true}
                   renderAnnotationLayer={true}
                   loading={
-                    <div style={{
-                      width: '100%',
-                      height: '500px',
-                      display: 'flex',
-                      justifyContent: 'center',
-                      alignItems: 'center',
-                      background: '#f5f5f5',
-                      border: '1px solid #ddd',
-                      borderRadius: '8px'
-                    }}>
-                      <div style={{
+                    <div
+                      style={{
+                        width: '100%',
+                        height: '500px',
                         display: 'flex',
-                        flexDirection: 'column',
+                        justifyContent: 'center',
                         alignItems: 'center',
-                        gap: '15px'
-                      }}>
-                        <div style={{
-                          width: '30px',
-                          height: '30px',
-                          border: '3px solid #f3f3f3',
-                          borderTop: '3px solid #ff6600',
-                          borderRadius: '50%',
-                          animation: 'spin 1s linear infinite'
-                        }}></div>
-                        <p style={{ margin: 0, color: '#666' }}>पेज लोड हो रहा है...</p>
+                        background: '#f5f5f5',
+                        border: '1px solid #ddd',
+                        borderRadius: '8px',
+                      }}
+                    >
+                      <div
+                        style={{
+                          display: 'flex',
+                          flexDirection: 'column',
+                          alignItems: 'center',
+                          gap: '15px',
+                        }}
+                      >
+                        <div
+                          style={{
+                            width: '30px',
+                            height: '30px',
+                            border: '3px solid #f3f3f3',
+                            borderTop: '3px solid #ff6600',
+                            borderRadius: '50%',
+                            animation: 'spin 1s linear infinite',
+                          }}
+                        ></div>
+                        <p style={{ margin: 0, color: '#666' }}>
+                          पेज लोड हो रहा है...
+                        </p>
                       </div>
                     </div>
                   }
@@ -212,38 +228,36 @@ export default function PDFViewer({ isOpen, onClose, pdfUrl, title }) {
             </div>
           )}
         </div>
-        
+
         {!loading && !error && numPages && (
           <div className="pdf-controls">
             <div style={{ display: 'flex', gap: '10px', alignItems: 'center' }}>
-              <button 
-                className="pdf-nav-btn" 
+              <button
+                className="pdf-nav-btn"
                 onClick={goToPrevPage}
                 disabled={pageNumber <= 1}
               >
                 ← पिछला
               </button>
-              
+
               <span className="pdf-page-info">
                 पेज {pageNumber} / {numPages}
               </span>
-              
-              <button 
-                className="pdf-nav-btn" 
+
+              <button
+                className="pdf-nav-btn"
                 onClick={goToNextPage}
                 disabled={pageNumber >= numPages}
               >
                 अगला →
               </button>
             </div>
-            
+
             <div className="pdf-zoom-controls">
               <button className="pdf-zoom-btn" onClick={zoomOut}>
                 ➖
               </button>
-              <span className="pdf-zoom-level">
-                {Math.round(scale * 100)}%
-              </span>
+              <span className="pdf-zoom-level">{Math.round(scale * 100)}%</span>
               <button className="pdf-zoom-btn" onClick={zoomIn}>
                 ➕
               </button>
@@ -254,11 +268,15 @@ export default function PDFViewer({ isOpen, onClose, pdfUrl, title }) {
           </div>
         )}
       </div>
-      
+
       <style jsx>{`
         @keyframes spin {
-          0% { transform: rotate(0deg); }
-          100% { transform: rotate(360deg); }
+          0% {
+            transform: rotate(0deg);
+          }
+          100% {
+            transform: rotate(360deg);
+          }
         }
       `}</style>
     </div>

@@ -34,22 +34,23 @@ export default function Home() {
   return (
     <>
       <div className="logo-container">
-        <Image 
-          src="/logo.jpg" 
-          alt="Yatharth Ventures Logo" 
+        <Image
+          src="/logo.jpg"
+          alt="Yatharth Ventures Logo"
           width={300}
           height={150}
           className="logo"
           priority
         />
       </div>
-      
+
       <div className="center-box">
         <div className="title">Anandam City</div>
         <div className="subtitle">Where Peace Meets Progress</div>
         <div className="desc">
           <strong>"हमें मानते हैं - शांति में समृद्धि छुपी है"</strong>
-          <br /><br />
+          <br />
+          <br />
           यह सिर्फ एक प्लॉट नहीं, एक ऐसी जगह है जहाँ आपका कल मुस्कुराता है।
           <br />
           <em style={{ color: '#ff6600', fontWeight: 600 }}>"घर हो अपना"</em>

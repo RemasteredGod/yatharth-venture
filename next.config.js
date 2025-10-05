@@ -8,7 +8,7 @@ const nextConfig = {
         canvas: false,
       };
     }
-    
+
     // Handle server-side fallbacks
     config.resolve.fallback = {
       ...config.resolve.fallback,
@@ -20,6 +20,6 @@ const nextConfig = {
 
     return config;
   },
-}
+};
 
-module.exports = nextConfig
+module.exports = nextConfig;
