@@ -2,7 +2,7 @@
 
 import { useState, useEffect } from 'react';
 import Image from 'next/image';
-import SimplePDFViewer from '@/components/SimplePDFViewer';
+import SimplerPDFViewer from '@/components/SimplerPDFViewer';
 
 export default function Home() {
   const [isPDFOpen, setIsPDFOpen] = useState(false);
@@ -60,7 +60,7 @@ export default function Home() {
         </button>
       </div>
 
-      <SimplePDFViewer
+      <SimplerPDFViewer
         isOpen={isPDFOpen}
         onClose={closePDF}
         pdfUrl="/Presentation Anandam City.pdf"

@@ -7,7 +7,7 @@ import 'react-pdf/dist/Page/TextLayer.css';
 
 // Configure PDF.js worker
 if (typeof window !== 'undefined') {
-  pdfjs.GlobalWorkerOptions.workerSrc = `//unpkg.com/pdfjs-dist@${pdfjs.version}/build/pdf.worker.min.js`;
+  pdfjs.GlobalWorkerOptions.workerSrc = `https://unpkg.com/pdfjs-dist@${pdfjs.version}/build/pdf.worker.min.js`;
 }
 
 export default function PDFViewer({ isOpen, onClose, pdfUrl, title }) {
@@ -23,17 +23,32 @@ export default function PDFViewer({ isOpen, onClose, pdfUrl, title }) {
     };
 
     if (isOpen) {
+      console.log('PDFViewer opened with URL:', pdfUrl);
       document.addEventListener('keydown', handleEscape);
       document.body.style.overflow = 'hidden';
+      
+      // Set a timeout to avoid infinite loading
+      const loadingTimeout = setTimeout(() => {
+        if (loading) {
+          console.warn('PDF loading timeout, showing error');
+          setLoading(false);
+          setError('PDF लोड करने में अधिक समय लग रहा है');
+        }
+      }, 15000); // 15 seconds timeout
+      
+      return () => {
+        clearTimeout(loadingTimeout);
+      };
     }
 
     return () => {
       document.removeEventListener('keydown', handleEscape);
       document.body.style.overflow = 'auto';
     };
-  }, [isOpen, onClose]);
+  }, [isOpen, onClose, pdfUrl, loading]);
 
   const onDocumentLoadSuccess = ({ numPages }) => {
+    console.log('PDF loaded successfully, pages:', numPages);
     setNumPages(numPages);
     setLoading(false);
     setError(null);
@@ -41,6 +56,7 @@ export default function PDFViewer({ isOpen, onClose, pdfUrl, title }) {
 
   const onDocumentLoadError = (error) => {
     console.error('Error loading PDF:', error);
+    console.error('PDF URL:', pdfUrl);
     setLoading(false);
     setError('PDF लोड करने में समस्या हुई');
   };
@@ -180,6 +196,11 @@ export default function PDFViewer({ isOpen, onClose, pdfUrl, title }) {
                 onLoadSuccess={onDocumentLoadSuccess}
                 onLoadError={onDocumentLoadError}
                 loading={null}
+                options={{
+                  cMapUrl: 'https://unpkg.com/pdfjs-dist@3.11.174/cmaps/',
+                  cMapPacked: true,
+                  standardFontDataUrl: 'https://unpkg.com/pdfjs-dist@3.11.174/standard_fonts/',
+                }}
               >
                 <Page
                   pageNumber={pageNumber}
