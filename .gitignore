@@ -4,6 +4,6 @@ node_modules/
 # Ignore Python packages
 venv/
 __pycache__/
-
+.next
 # Ignore environment files
 .env
