@@ -3,7 +3,18 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Anandam City - Yatharth Ventures</title>
+    <title>
+      Ana function showContactInfo() {
+      document.getElementById('infoModal').style.display = 'block';
+      document.body.style.overflow = 'hidden'; // Prevent background scrolling }
+      function closeModal() { document.getElementById('infoModal').style.display
+      = 'none'; document.body.style.overflow = 'auto'; // Restore scrolling } //
+      Close modal when clicking outside of it document.addEventListener('click',
+      function(event) { const modal = document.getElementById('infoModal'); if
+      (event.target === modal) { closeModal(); } }); // Close modal with Escape
+      key document.addEventListener('keydown', function(event) { if (event.key
+      === 'Escape') { closeModal(); } });City - Yatharth Ventures
+    </title>
     <link
       href="https://fonts.googleapis.com/css2?family=Montserrat:wght@700;600;400&display=swap"
       rel="stylesheet"
@@ -101,6 +112,135 @@
         transform: translateY(-2px);
         box-shadow: 0 12px 25px rgba(255, 102, 0, 0.4);
       }
+
+      /* Modal Styles */
+      .modal-overlay {
+        display: none;
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background: rgba(0, 0, 0, 0.5);
+        backdrop-filter: blur(10px);
+        z-index: 1000;
+        animation: fadeIn 0.3s ease;
+      }
+
+      .modal-content {
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        background: white;
+        padding: 30px;
+        border-radius: 15px;
+        box-shadow: 0 20px 40px rgba(0, 0, 0, 0.3);
+        max-width: 90vw;
+        max-height: 80vh;
+        overflow-y: auto;
+        animation: slideIn 0.3s ease;
+      }
+
+      .modal-header {
+        text-align: center;
+        font-size: 1.5rem;
+        font-weight: 700;
+        color: #1a2a6c;
+        margin-bottom: 20px;
+        border-bottom: 2px solid #ff6600;
+        padding-bottom: 10px;
+        line-height: 1.4;
+      }
+
+      .modal-body {
+        color: #333;
+        font-size: 1rem;
+        line-height: 1.6;
+        text-align: left;
+      }
+
+      .modal-section {
+        margin-bottom: 20px;
+      }
+
+      .modal-section h3 {
+        color: #ff6600;
+        font-size: 1.2rem;
+        margin-bottom: 10px;
+        font-weight: 600;
+      }
+
+      .modal-section ul {
+        margin: 0;
+        padding-left: 20px;
+      }
+
+      .modal-section li {
+        margin-bottom: 5px;
+      }
+
+      .price-highlight {
+        background: linear-gradient(45deg, #ff6600, #ff8533);
+        color: white;
+        padding: 10px;
+        border-radius: 8px;
+        text-align: center;
+        font-weight: 600;
+        margin: 10px 0;
+      }
+
+      .contact-grid {
+        display: grid;
+        grid-template-columns: 1fr;
+        gap: 10px;
+        background: #f8f9fa;
+        padding: 15px;
+        border-radius: 8px;
+        margin-top: 15px;
+      }
+
+      .contact-item {
+        display: flex;
+        align-items: center;
+        gap: 10px;
+      }
+
+      .close-btn {
+        position: absolute;
+        top: 15px;
+        right: 20px;
+        background: none;
+        border: none;
+        font-size: 2rem;
+        color: #999;
+        cursor: pointer;
+        transition: color 0.2s;
+      }
+
+      .close-btn:hover {
+        color: #ff6600;
+      }
+
+      @keyframes fadeIn {
+        from {
+          opacity: 0;
+        }
+        to {
+          opacity: 1;
+        }
+      }
+
+      @keyframes slideIn {
+        from {
+          opacity: 0;
+          transform: translate(-50%, -60%);
+        }
+        to {
+          opacity: 1;
+          transform: translate(-50%, -50%);
+        }
+      }
       @media (max-width: 768px) {
         .logo {
           max-width: 250px;
@@ -142,6 +282,26 @@
           padding: 14px 20px;
           text-transform: none;
         }
+
+        .modal-content {
+          padding: 20px;
+          max-width: 95vw;
+        }
+
+        .modal-header {
+          font-size: 1.2rem;
+        }
+
+        .contact-grid {
+          grid-template-columns: 1fr;
+        }
+
+        .contact-item {
+          font-size: 0.9rem;
+          flex-direction: column;
+          align-items: flex-start;
+          gap: 5px;
+        }
       }
     </style>
   </head>
@@ -162,6 +322,66 @@
       <button class="main-btn" onclick="showContactInfo()">
         प्रोजेक्ट की जानकारी लें
       </button>
+    </div>
+
+    <!-- Modal Dialog -->
+    <div id="infoModal" class="modal-overlay">
+      <div class="modal-content">
+        <button class="close-btn" onclick="closeModal()">&times;</button>
+        <div class="modal-header">🌟 आनंदम सिटी – आपका अपना घर 🌟</div>
+        <div class="modal-body">
+          <div class="modal-section">
+            <h3>📍 स्थान</h3>
+            <ul>
+              <li>लखनऊ–कानपुर रोड / एक्सप्रेसवे</li>
+              <li>आनंदी मैजिक वर्ल्ड वाटर पार्क के पास</li>
+            </ul>
+          </div>
+
+          <div class="modal-section">
+            <h3>💰 Price</h3>
+            <div class="price-highlight">
+              <div style="text-decoration: line-through; opacity: 0.8">
+                असली कीमत: ₹899 प्रति वर्ग फुट
+              </div>
+              <div style="font-size: 1.3rem; margin-top: 5px">
+                🎉 ऑफ़र में: ₹699 प्रति वर्ग फुट
+              </div>
+            </div>
+          </div>
+
+          <div class="modal-section">
+            <h3>🏗️ सुविधाएँ</h3>
+            <ul>
+              <li>Gated Community</li>
+              <li>Road</li>
+              <li>Park</li>
+              <li>24/7 Security</li>
+              <li>GYM</li>
+            </ul>
+          </div>
+
+          <div class="modal-section">
+            <h3>📞 Contact us</h3>
+            <div class="contact-grid">
+              <div class="contact-item">
+                <span>📱</span> <strong>Phone:</strong> +91-82992 95211
+              </div>
+              <div class="contact-item">
+                <span>🌐</span>
+                <strong>Website:</strong> www.yatharthventures.com
+              </div>
+              <div class="contact-item">
+                <span>📧</span> <strong>Email:</strong> anandamcity51@gmail.com
+              </div>
+              <div class="contact-item">
+                <span>📍</span> <strong>Location:</strong> लखनऊ–कानपुर रोड /
+                एक्सप्रेसवे, आनंदी मैजिक वर्ल्ड वाटर पार्क के पास
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
     </div>
 
     <script>
