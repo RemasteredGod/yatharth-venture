@@ -33,7 +33,7 @@ export default function Home() {
 
   return (
     <>
-      <div className="logo-container">
+      <div className="logo-container" style={{ marginTop: 48, marginBottom: 0 }}>
         <Image
           src="/logo.jpg"
           alt="Yatharth Ventures Logo"
@@ -46,14 +46,17 @@ export default function Home() {
 
       <div className="center-box">
         <div className="title">Anandam City</div>
-        <div className="subtitle">Where Peace Meets Progress</div>
+        <div className="subtitle">Where Peace Meets Progress<br /><span style={{ fontSize: '1rem', color: '#1a2a6c', fontWeight: 500 }}>Yatharth Ventures द्वारा प्रस्तुत</span></div>
+        <hr style={{ border: 'none', borderTop: '2px solid #ff6600', width: '60px', margin: '18px auto 28px auto', opacity: 0.5 }} />
         <div className="desc">
           <strong>"हमें मानते हैं - शांति में समृद्धि छुपी है"</strong>
           <br />
           <br />
           यह सिर्फ एक प्लॉट नहीं, एक ऐसी जगह है जहाँ आपका कल मुस्कुराता है।
           <br />
-          <em style={{ color: '#ff6600', fontWeight: 600 }}>"घर हो अपना"</em>
+          <em style={{ color: '#ff6600', fontWeight: 600 }}>
+            "घर हो अपना"
+          </em>
         </div>
         <button className="main-btn" onClick={openPDF}>
           प्रोजेक्ट की जानकारी देखें
